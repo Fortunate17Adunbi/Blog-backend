@@ -1,0 +1,28 @@
+# exercise 4.3
+Define dummy function that returns 1 despit the array received
+
+# exercise 4.4
+TotalLikes function
+
+receives an array (of object)
+  if the array is empty
+    return 0
+  calculate the total TotalLikes 
+  use the reduce() function on the array that adds each likes in the object and returns at the end(Works for 1 object)
+
+
+# exercise 4.5
+favoriteBlog function
+
+receives an array (of object)
+  if the array is empty
+    return 0
+  search for blog with the highest likes 
+  use find() function on the item received from using the like parameter
+    use the map() function on the array
+      set the first blog likes as the highest like stored in a variable
+      if the next iteration likes > current highest like variable
+        set highest like variable to the current iteration like
+      else
+  return the result of the the highest blog customized to specific fields
+   
