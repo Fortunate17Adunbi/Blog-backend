@@ -1,5 +1,6 @@
 const blogRouter = require('express').Router()
 const Blog = require('../models/blog')
+const logger = require('../utils/logger')
 
 blogRouter.get('/', (request, response) => {
   Blog
@@ -8,7 +9,7 @@ blogRouter.get('/', (request, response) => {
       response.json(blogs)
     })
     .catch(error => {
-      console.log("Error getting document ", error.message)
+      logger.error("Error getting document ", error.message)
     })
 })
 
@@ -16,14 +17,14 @@ blogRouter.post('/', (request, response) => {
   const body = request.body
 
   const blog = new Blog(request.body)
-  console.log("blog", blog)
+  logger.info("blog", blog)
   blog
     .save()
     .then(result => {
       response.status(201).json(result)
     })
     .catch(error => {
-      console.error("Error adding blog", error.message)
+      logger.error("Error adding blog", error.message)
     })
 })
 
