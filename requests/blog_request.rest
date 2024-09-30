@@ -1,12 +1,12 @@
 POST http://localhost:3003/api/blogs HTTP/1.1
 Content-Type: application/json
 
-{
-  "title": "Go To Statement Considered Harmful",
-  "author": "Edsger W. Dijkstra",
-  "url": "https://homepages.cwi.nl/~storm/teaching/reader/Dijkstra68.pdf",
-  "likes": "25"
-}
+    {
+      "title": "Canonical string reduction",
+      "author": "Edsger W. Dijkstra",
+      "url": "http://www.cs.utexas.edu/~EWD/transcriptions/EWD08xx/EWD808.html",
+      "likes": 12
+    }
 
 
 ###

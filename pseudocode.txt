@@ -26,3 +26,15 @@ receives an array (of object)
       else
   return the result of the the highest blog customized to specific fields
    
+
+# exercise 4.6
+
+create an empty  "authors" array to store objects containing fields( author and blogs)
+looop through the arrray with map()
+  in the current iteration of the blogs
+    if author exist in authors array(use find() on the the authors)
+      increment the count of blog by 1
+    else  
+      concat the author along with blog = 1
+
+use reduce on the authors array and return the author with the highest blog
