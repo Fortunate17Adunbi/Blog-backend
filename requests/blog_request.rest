@@ -2,10 +2,10 @@ POST http://localhost:3003/api/blogs HTTP/1.1
 Content-Type: application/json
 
     {
-      "title": "First class tests",
-      "author": "Robert C. Martin",
+      "title": "this is a new note",
+      "author": "Robert Cur",
       "url": "http://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.htmll",
-      "likes": 10
+      "likes": 100
     }
 
 
