@@ -54,6 +54,13 @@ test('a blog without like property is give 0', async () => {
   const blog = await helpers.findBlog(response.body.id)
   assert.strictEqual(blog.likes, 0)
 })
+
+test('blog without url or title is not stored', async () => {
+  await api.post('/api/blogs')
+    .send(helpers.newBlog)
+    .expect(400)
+})
+
 after(async () => {
   await mongoose.connection.close()
 })
