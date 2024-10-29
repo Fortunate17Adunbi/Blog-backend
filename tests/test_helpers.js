@@ -4,20 +4,35 @@ const initialBlog = [
   {
     title: 'How to write html',
     author: 'James brown',
+    url: 'http://blog.cleancoder.com/How-to-write-html',
     likes: 10
   },
   {
     title: 'writting test from backend',
     author: 'Lucy perry',
+    url: 'http://blog.cleancoder.com/writting-test-from-backend',
     likes: 20
   }
 ]
 
-const noteInDb = async () => {
+const newBlog = {
+  title: 'A new blog',
+  author: 'me',
+  url: 'http://blog.react.com/A-new-blog',
+  likes: ''
+}
+
+const blogInDb = async () => {
   const blogs = await Blog.find({})
   return blogs.map(blog => blog.toJSON())
 }
 
+const findBlog = async (id) => {
+  console.log("blog title", id)
+  const blog = await Blog.findById(id)
+  // console.log("blog",blog)
+  return blog
+}
 module.exports = {
-  initialBlog, noteInDb
+  initialBlog, blogInDb, newBlog, findBlog
 }
