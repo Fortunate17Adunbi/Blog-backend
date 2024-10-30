@@ -12,12 +12,13 @@ const api = supertest(app)
 
 beforeEach(async () => {
   await Blog.deleteMany({})
+  await Blog.insertMany(helpers.initialBlog)
   console.log('cleared')
 
-  const blogObject = helpers.initialBlog.map(blog => new Blog(blog))
-  const promiseArray = blogObject.map(blog => blog.save())
+  // const blogObject = helpers.initialBlog.map(blog => new Blog(blog))
+  // const promiseArray = blogObject.map(blog => blog.save())
 
-  await Promise.all(promiseArray)
+  // await Promise.all(promiseArray)
 })
 
 test('Get blogs', async () => {
@@ -56,8 +57,14 @@ test('a blog without like property is give 0', async () => {
 })
 
 test('blog without url or title is not stored', async () => {
+  const incompleteBlog  = {
+    title: 'A new blog',
+    author: 'me',
+    url: '',
+    likes: 8
+  }
   await api.post('/api/blogs')
-    .send(helpers.newBlog)
+    .send(incompleteBlog)
     .expect(400)
 })
 

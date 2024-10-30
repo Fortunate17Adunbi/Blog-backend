@@ -26,4 +26,6 @@ blogRouter.post('/', async (request, response) => {
   response.status(201).json(savedBlog)
 })
 
+// blogRouter.delete('/', async () => )
+
 module.exports = blogRouter
