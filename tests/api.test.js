@@ -68,6 +68,35 @@ test('blog without url or title is not stored', async () => {
     .expect(400)
 })
 
+test('blog with valid note is deleted', async () => {
+  const blogsAtStart = await helpers.blogInDb()
+  const blogToDelete = blogsAtStart[1]
+
+  await api.delete(`/api/blogs/${blogToDelete.id}`)
+    .expect(204)
+  
+  const blogAtEnd = await helpers.blogInDb()
+
+  assert(!blogAtEnd.includes(blogToDelete))
+  assert.strictEqual(blogAtEnd.length, helpers.initialBlog.length - 1)
+})
+
+test('blog info can be updated', async () => {
+  const blogsAtStart = await helpers.blogInDb()
+  const updatedBlog = blogsAtStart[1]
+
+  updatedBlog.likes = 30
+  // console.log("Updated Blog", updatedBlog)
+
+  const response = await api.put(`/api/blogs/${updatedBlog.id}`)
+    .send(updatedBlog)
+    .expect(200)
+    .expect('Content-Type', /application\/json/)
+
+  // console.log(response.body)
+  assert.deepStrictEqual(response.body, updatedBlog)
+})
+
 after(async () => {
   await mongoose.connection.close()
 })
