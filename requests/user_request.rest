@@ -1,0 +1,25 @@
+GET http://localhost:3003/api/users
+
+###
+
+POST  http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+  "username": "cip",
+  "name": "Incognito cip",
+  "password": "cip450"
+}
+###
+
+DELETE http://localhost:3003/api/users/672daa1d14cf189a3bbc2613
+
+###
+
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+  "username": "cip",
+  "password": "cip450"
+}
